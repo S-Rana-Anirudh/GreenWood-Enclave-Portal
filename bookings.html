@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track Greenwood Enclave resource reservations and review your booking history.">
+  <title>My Bookings | Greenwood Enclave Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="index.html">Greenwood Enclave Portal</a>
+    <nav class="site-navigation" aria-label="Main navigation">
+      <ul class="navigation-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="resources.html">Catalogue</a></li>
+        <li><a href="book-resource.html">Request Booking</a></li>
+        <li><a href="bookings.html" aria-current="page">My Bookings</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+      </ul>
+    </nav>
+    <p class="user-profile" aria-label="Resident Alex Rivera, Flat 402-B">Resident: Alex Rivera (402-B) · <a href="admin.html">Switch to Admin</a></p>
+  </header>
+
+  <main class="bookings-main">
+    <section class="bookings-header" aria-labelledby="bookings-heading">
+      <h1 id="bookings-heading">My Reservations &amp; Usage History</h1>
+      <p>Track current requests and review your completed reservations.</p>
+      <div class="status-tabs" role="group" aria-label="Filter bookings by status">
+        <button type="button" data-status="all" aria-pressed="true">All</button>
+        <button type="button" data-status="pending" aria-pressed="false">Pending</button>
+        <button type="button" data-status="approved" aria-pressed="false">Approved</button>
+        <button type="button" data-status="rejected" aria-pressed="false">Rejected</button>
+        <button type="button" data-status="past" aria-pressed="false">Past</button>
+      </div>
+    </section>
+
+    <section class="active-bookings-list" aria-labelledby="active-bookings-heading">
+      <h2 id="active-bookings-heading">Active &amp; Upcoming Bookings</h2>
+      <article class="booking-detail-card" data-status="approved">
+        <header class="booking-card-header">
+          <h3>Clubhouse Banquet Hall</h3>
+          <span class="badge badge-approved">Approved</span>
+        </header>
+        <dl class="booking-details">
+          <dt>Booking ID</dt>
+          <dd>#BK-901</dd>
+          <dt>Date &amp; Time</dt>
+          <dd><time datetime="2026-10-28">28 Oct 2026</time>, 17:00–21:00</dd>
+          <dt>Purpose</dt>
+          <dd>Family Birthday Gathering</dd>
+          <dt>Deposit</dt>
+          <dd>₹500 (Paid/Billed)</dd>
+        </dl>
+        <div class="booking-card-actions">
+          <button class="btn-primary" type="button" data-open-details>View Entry Pass</button>
+          <button class="btn-secondary" type="button">Cancel Booking</button>
+        </div>
+      </article>
+
+      <article class="booking-detail-card" data-status="pending">
+        <header class="booking-card-header">
+          <h3>High-Pressure Washer Kit</h3>
+          <span class="badge badge-pending">Pending Admin Approval</span>
+        </header>
+        <dl class="booking-details">
+          <dt>Booking ID</dt>
+          <dd>#BK-904</dd>
+          <dt>Date &amp; Time</dt>
+          <dd>Tomorrow, 09:00–12:00</dd>
+          <dt>Purpose</dt>
+          <dd>Balcony &amp; Car Cleaning</dd>
+        </dl>
+        <div class="booking-card-actions">
+          <button class="btn-secondary" type="button">Modify Request</button>
+          <button class="btn-secondary" type="button">Cancel Request</button>
+        </div>
+      </article>
+
+      <article class="booking-detail-card" data-status="rejected">
+        <header class="booking-card-header">
+          <h3>Indoor Badminton Court 1</h3>
+          <span class="badge badge-rejected">Rejected — Slot Conflict</span>
+        </header>
+        <dl class="booking-details">
+          <dt>Booking ID</dt>
+          <dd>#BK-889</dd>
+          <dt>Date &amp; Time</dt>
+          <dd><time datetime="2026-10-26">26 Oct 2026</time>, 18:00–20:00</dd>
+          <dt>Admin Note</dt>
+          <dd>Court already reserved for Society Annual Tournament</dd>
+        </dl>
+        <div class="booking-card-actions">
+          <a class="btn-primary" href="book-resource.html">Rebook Another Slot</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="past-bookings-section" aria-labelledby="past-bookings-heading">
+      <h2 id="past-bookings-heading">Past Reservations &amp; Equipment Return Log</h2>
+      <div class="table-wrapper">
+        <table class="bookings-history-table">
+          <thead>
+            <tr>
+              <th scope="col">Booking ID</th>
+              <th scope="col">Resource Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Date Used</th>
+              <th scope="col">Purpose</th>
+              <th scope="col">Return / Inspection Status</th>
+              <th scope="col">Final Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-status="past">
+              <td>#BK-870</td>
+              <td>High-Pressure Washer Kit</td>
+              <td>Tools</td>
+              <td><time datetime="2026-10-20">20 Oct 2026</time></td>
+              <td>Patio cleaning</td>
+              <td>Returned clean and in good condition</td>
+              <td><span class="badge badge-completed">Completed</span></td>
+            </tr>
+            <tr data-status="past">
+              <td>#BK-861</td>
+              <td>Badminton Court 1</td>
+              <td>Sports</td>
+              <td><time datetime="2026-10-18">18 Oct 2026</time></td>
+              <td>Weekend doubles practice</td>
+              <td>Court inspected; no issues</td>
+              <td><span class="badge badge-completed">Completed</span></td>
+            </tr>
+            <tr data-status="past">
+              <td>#BK-842</td>
+              <td>Folding Event Tables &amp; 20 Chairs</td>
+              <td>Spaces</td>
+              <td><time datetime="2026-10-12">12 Oct 2026</time></td>
+              <td>Neighbourhood potluck</td>
+              <td>Cancelled before reservation date</td>
+              <td><span class="badge badge-cancelled">Cancelled by User</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <dialog id="booking-details-modal" aria-labelledby="booking-details-heading">
+      <div class="booking-modal-content">
+        <h2 id="booking-details-heading">Reservation Entry Pass</h2>
+        <dl class="booking-details">
+          <dt>Booking Reference ID</dt>
+          <dd>#BK-901</dd>
+          <dt>Resident Name</dt>
+          <dd>Alex Rivera</dd>
+          <dt>Flat Number</dt>
+          <dd>402-B</dd>
+          <dt>Approved By</dt>
+          <dd>Sec. R. Sharma (RWA Office)</dd>
+          <dt>Approval Timestamp</dt>
+          <dd><time datetime="2026-10-25T10:30">25 Oct 2026, 10:30 AM</time></dd>
+          <dt>Rules Acknowledged</dt>
+          <dd>Yes</dd>
+        </dl>
+        <button id="close-details-modal" type="button">Close</button>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Greenwood Enclave Residents Welfare Association.</p>
+  </footer>
+
+  <script src="javascript/storage.js" defer></script>
+  <script src="javascript/bookings.js" defer></script>
+</body>
+</html>

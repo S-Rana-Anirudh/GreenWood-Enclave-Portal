@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore and request bookings for shared spaces, tools, and sports facilities at Greenwood Enclave.">
+  <title>Resource Catalogue | Greenwood Enclave Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="index.html">Greenwood Enclave Portal</a>
+    <nav class="site-navigation" aria-label="Main navigation">
+      <ul class="navigation-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="resources.html" aria-current="page">Resource Catalogue</a></li>
+        <li><a href="book-resource.html">Request Booking</a></li>
+        <li><a href="bookings.html">My Bookings</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+      </ul>
+    </nav>
+    <p class="user-profile" aria-label="Resident Alex Rivera, Flat 402-B">Resident: Alex Rivera (402-B) · <a href="admin.html">Switch to Admin</a></p>
+  </header>
+
+  <main class="catalogue-main">
+    <section class="catalogue-controls" aria-labelledby="catalogue-heading">
+      <h1 id="catalogue-heading">Community Resource Catalogue</h1>
+      <p>Find shared spaces and equipment, check their status, and request a time slot.</p>
+      <div class="catalogue-search">
+        <label for="resource-search">Search resources</label>
+        <input type="search" id="resource-search" name="resource-search" placeholder="Search halls, tools, sports courts...">
+      </div>
+      <div class="filter-buttons" role="group" aria-label="Filter resources by category">
+        <button type="button" data-filter="all" aria-pressed="true">All Resources</button>
+        <button type="button" data-filter="spaces" aria-pressed="false">Spaces</button>
+        <button type="button" data-filter="tools" aria-pressed="false">Tools</button>
+        <button type="button" data-filter="sports" aria-pressed="false">Sports</button>
+      </div>
+    </section>
+
+    <section class="resource-grid" id="resource-grid" aria-label="Community resources">
+      <article class="resource-card" data-category="spaces">
+        <img src="assests/photo-1677129663678-2171fa8a44cb.avif" alt="Clubhouse banquet hall set up for an outdoor event" width="640" height="400">
+        <div class="resource-card-content">
+          <span class="status-badge status-badge--available">Available</span>
+          <h2>Clubhouse Banquet Hall</h2>
+          <p>Capacity: 80 guests</p>
+          <p>Fee: ₹500 refundable deposit</p>
+          <button class="button button--primary" type="button" data-resource="Clubhouse Banquet Hall">Book Now</button>
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="sports">
+        <img src="assests/empty-badminton-court-with-single-net-lighting_1331154-24271.webp" alt="Indoor badminton court with net" width="640" height="400">
+        <div class="resource-card-content">
+          <span class="status-badge status-badge--reserved">Reserved</span>
+          <h2>Indoor Badminton Court 1</h2>
+          <p>Capacity: 4 players</p>
+          <p>Fee: Free Resident Access</p>
+          <button class="button button--primary" type="button" disabled>Reserved</button>
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="tools">
+        <img src="assests/Gemini_Generated_Image_38o1ye38o1ye38o1.png" alt="High-pressure washer cleaning a garden patio" width="640" height="400">
+        <div class="resource-card-content">
+          <span class="status-badge status-badge--available">Available</span>
+          <h2>High-Pressure Washer Kit</h2>
+          <p>Includes a 15m hose</p>
+          <p>Fee: ₹100 token deposit</p>
+          <button class="button button--primary" type="button" data-resource="High-Pressure Washer Kit">Book Now</button>
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="tools">
+        <img src="assests/battery-electric-lawn-mowers-in-the-garden.webp" alt="Electric lawn mower on a lawn" width="640" height="400">
+        <div class="resource-card-content">
+          <span class="status-badge status-badge--unavailable">Maintenance / Unavailable</span>
+          <h2>Electric Lawn Mower</h2>
+          <p>Corded 1500W model</p>
+          <p>Fee: Free Resident Access</p>
+          <button class="button button--primary" type="button" disabled>Under Maintenance</button>
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="spaces">
+        <img src="assests/cx-produktbild2-inf200.webp" alt="Outdoor projector screen set up in a garden" width="640" height="400">
+        <div class="resource-card-content">
+          <span class="status-badge status-badge--available">Available</span>
+          <h2>4K Outdoor Projector &amp; Screen</h2>
+          <p>Outdoor media kit</p>
+          <p>Fee: ₹250 deposit</p>
+          <button class="button button--primary" type="button" data-resource="4K Outdoor Projector &amp; Screen">Book Now</button>
+        </div>
+      </article>
+
+      <article class="resource-card" data-category="spaces">
+        <img src="assests/multiple-white-hercules-folding-chairs-at-event.webp" alt="White folding chairs arranged for an event" width="640" height="400">
+        <div class="resource-card-content">
+          <span class="status-badge status-badge--available">Available</span>
+          <h2>Folding Event Tables &amp; 20 Chairs</h2>
+          <p>Event furniture set</p>
+          <p>Fee: Free Resident Access</p>
+          <button class="button button--primary" type="button" data-resource="Folding Event Tables &amp; 20 Chairs">Book Now</button>
+        </div>
+      </article>
+    </section>
+
+    <dialog id="booking-modal" aria-labelledby="booking-modal-heading">
+      <div class="booking-modal-content">
+        <h2 id="booking-modal-heading">Request a Resource Booking</h2>
+        <form id="booking-form">
+          <div class="form-field">
+            <label for="modal-resource-name">Selected Resource</label>
+            <input type="text" id="modal-resource-name" name="resource" readonly required>
+          </div>
+          <div class="form-field">
+            <label for="resident-name">Resident Name</label>
+            <input type="text" id="resident-name" name="resident-name" value="Alex Rivera" required>
+          </div>
+          <div class="form-field">
+            <label for="flat-number">Flat Number</label>
+            <input type="text" id="flat-number" name="flat-number" value="402-B" required>
+          </div>
+          <div class="form-field">
+            <label for="reservation-date">Reservation Date</label>
+            <input type="date" id="reservation-date" name="reservation-date" required>
+          </div>
+          <div class="form-field">
+            <label for="time-slot">Time Slot</label>
+            <select id="time-slot" name="time-slot" required>
+              <option value="">Select a time slot</option>
+              <option value="morning">Morning, 9 AM–12 PM</option>
+              <option value="afternoon">Afternoon, 1 PM–4 PM</option>
+              <option value="evening">Evening, 5 PM–9 PM</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-purpose">Purpose of Booking</label>
+            <textarea id="booking-purpose" name="purpose" rows="4"></textarea>
+          </div>
+          <fieldset class="checkout-options">
+            <legend>Mock Checkout / Deposit</legend>
+            <div class="form-field">
+              <input type="radio" id="payment-dues" name="payment-method" value="maintenance-dues" required>
+              <label for="payment-dues">Billed to Monthly Society Maintenance Dues</label>
+            </div>
+            <div class="form-field">
+              <input type="radio" id="payment-office" name="payment-method" value="upi-or-office">
+              <label for="payment-office">UPI / Security Deposit at Office</label>
+            </div>
+          </fieldset>
+          <div class="booking-form-actions">
+            <button class="button button--primary" type="submit">Confirm Booking Request</button>
+            <button class="button button--secondary" id="close-modal" type="button">Cancel / Close</button>
+          </div>
+        </form>
+        <div id="booking-success" role="status" hidden>
+          <p>Your booking request has been submitted.</p>
+          <p>Booking reference: <strong id="booking-reference">GE-2026-0001</strong></p>
+        </div>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Greenwood Enclave Residents Welfare Association.</p>
+  </footer>
+
+  <script src="javascript/storage.js" defer></script>
+  <script src="javascript/resources.js" defer></script>
+</body>
+</html>

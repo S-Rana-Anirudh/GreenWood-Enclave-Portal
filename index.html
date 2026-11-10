@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View your Greenwood Enclave community resource bookings and important resident information.">
+  <title>Resident Dashboard | Greenwood Enclave Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="index.html">Greenwood Enclave Portal</a>
+    <nav class="site-navigation" aria-label="Main navigation">
+      <ul class="navigation-list">
+        <li><a href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="resources.html">Resource Catalogue</a></li>
+        <li><a href="book-resource.html">Request Booking</a></li>
+        <li><a href="bookings.html">My Bookings</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+      </ul>
+    </nav>
+    <p class="user-profile" aria-label="Resident Alex Rivera, Flat 402-B">Resident: Alex Rivera (402-B) · <a href="admin.html">Switch to Admin</a></p>
+  </header>
+
+  <main class="dashboard-main">
+    <section class="dashboard-metrics" aria-labelledby="dashboard-heading">
+      <div class="dashboard-introduction">
+        <h1 id="dashboard-heading">Welcome back, Alex</h1>
+        <p>Your Greenwood Enclave bookings and community updates at a glance.</p>
+      </div>
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <h2>Active Bookings</h2>
+          <p class="metric-value">2</p>
+        </article>
+        <article class="metric-card">
+          <h2>Pending Requests</h2>
+          <p class="metric-value">1</p>
+        </article>
+        <article class="metric-card">
+          <h2>Society Maintenance Dues</h2>
+          <p class="metric-value">₹0 <span>— Cleared</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="bookings" class="reservations-section" aria-labelledby="reservations-heading">
+      <div class="section-heading">
+        <h2 id="reservations-heading">My Reservations</h2>
+        <p>Review your current bookings and recent usage history.</p>
+      </div>
+      <div class="table-wrapper">
+        <table class="reservations-table">
+          <thead>
+            <tr>
+              <th scope="col">Resource Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Date &amp; Time Slot</th>
+              <th scope="col">Status</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clubhouse Banquet Hall</td>
+              <td>Community Space</td>
+              <td><time datetime="2026-11-08">8 Nov 2026</time>, 5:00 PM–9:00 PM</td>
+              <td><span class="badge badge--approved">Approved</span></td>
+              <td>
+                <a class="button button--secondary" href="#bookings">View Pass</a>
+                <button class="button button--text" type="button">Cancel</button>
+              </td>
+            </tr>
+            <tr>
+              <td>High-Pressure Washer Kit</td>
+              <td>Shared Equipment</td>
+              <td><time datetime="2026-11-12">12 Nov 2026</time>, 9:00 AM–12:00 PM</td>
+              <td><span class="badge badge--pending">Pending</span></td>
+              <td>
+                <a class="button button--secondary" href="#bookings">View Pass</a>
+                <button class="button button--text" type="button">Cancel</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Badminton Court 1</td>
+              <td>Sports &amp; Recreation</td>
+              <td><time datetime="2026-10-18">18 Oct 2026</time>, 6:00 PM–7:00 PM</td>
+              <td><span class="badge badge--completed">Completed</span></td>
+              <td>
+                <a class="button button--secondary" href="#bookings">View Pass</a>
+                <span class="action-unavailable">—</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="dashboard-bottom-grid">
+      <section class="quick-actions" aria-labelledby="quick-actions-heading">
+        <h2 id="quick-actions-heading">Plan something for the neighbourhood?</h2>
+        <p>Browse shared spaces, sports facilities, and useful equipment, then send a booking request.</p>
+        <a class="button button--primary" href="resources.html">Browse Resources</a>
+      </section>
+
+      <aside id="rules" class="community-rules" aria-labelledby="community-rules-heading">
+        <h2 id="community-rules-heading">Community Usage Rules</h2>
+        <ul>
+          <li>Shared tools may be borrowed for a maximum of 24 hours.</li>
+          <li>Bookings are checked for time conflicts before approval; back-to-back bookings are permitted.</li>
+          <li>Return any required security deposit according to the resource's booking terms.</li>
+          <li>Clean the space and remove personal items after every event.</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Greenwood Enclave Residents Welfare Association.</p>
+  </footer>
+
+  <script src="javascript/storage.js" defer></script>
+  <script src="javascript/dashboard.js" defer></script>
+</body>
+</html>

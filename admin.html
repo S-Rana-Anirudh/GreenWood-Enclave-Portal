@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage Greenwood Enclave resources, booking requests, and community rules.">
+  <title>Administrator Dashboard | Greenwood Enclave Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="index.html">Greenwood Enclave Portal — Admin View</a>
+    <nav class="site-navigation" aria-label="Main navigation">
+      <ul class="navigation-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="resources.html">Catalogue</a></li>
+        <li><a href="book-resource.html">Request Booking</a></li>
+        <li><a href="bookings.html">My Bookings</a></li>
+        <li><a href="admin.html" aria-current="page">Admin Panel</a></li>
+      </ul>
+    </nav>
+    <p class="user-profile" aria-label="Administrator S Rana Anirudh, RWA Office">Admin: S Rana Anirudh (RWA Office) · <a href="index.html">Switch to Resident</a></p>
+  </header>
+
+  <main class="admin-main">
+    <section class="admin-metrics" aria-labelledby="admin-overview-heading">
+      <h1 id="admin-overview-heading">Administrator Overview</h1>
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <h2>Pending Approvals</h2>
+          <p class="metric-value">3</p>
+        </article>
+        <article class="metric-card">
+          <h2>Total Active Resources</h2>
+          <p class="metric-value">6</p>
+        </article>
+        <article class="metric-card">
+          <h2>Today's Reservations</h2>
+          <p class="metric-value">4</p>
+        </article>
+        <article class="metric-card">
+          <h2>Flagged Conflicts</h2>
+          <p class="metric-value">0</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pending-requests" class="admin-section" aria-labelledby="pending-requests-heading">
+      <h2 id="pending-requests-heading">Pending Booking Requests (Requires Action)</h2>
+      <div class="table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">Request ID</th>
+              <th scope="col">Resident (Name &amp; Flat)</th>
+              <th scope="col">Resource</th>
+              <th scope="col">Date &amp; Slot</th>
+              <th scope="col">Purpose</th>
+              <th scope="col">Conflict Check</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#REQ-2026-89</td>
+              <td>Alex Rivera, 402-B</td>
+              <td>Clubhouse Banquet Hall</td>
+              <td><time datetime="2026-10-28">28 Oct 2026</time>, 17:00–21:00</td>
+              <td>Family birthday gathering</td>
+              <td><span class="badge badge-safe">No Conflict</span></td>
+              <td><button class="btn-approve" type="button">Approve</button> <button class="btn-reject" type="button">Reject</button></td>
+            </tr>
+            <tr>
+              <td>#REQ-2026-90</td>
+              <td>Priya Nair, 305-A</td>
+              <td>High-Pressure Washer Kit</td>
+              <td><time datetime="2026-10-26">26 Oct 2026</time>, 09:00–12:00</td>
+              <td>Balcony and car cleaning</td>
+              <td><span class="badge badge-safe">No Conflict</span></td>
+              <td><button class="btn-approve" type="button">Approve</button> <button class="btn-reject" type="button">Reject</button></td>
+            </tr>
+            <tr>
+              <td>#REQ-2026-91</td>
+              <td>Samir Patel, 118-C</td>
+              <td>Indoor Badminton Court 1</td>
+              <td><time datetime="2026-10-27">27 Oct 2026</time>, 18:00–20:00</td>
+              <td>Evening doubles practice</td>
+              <td><span class="badge badge-safe">No Conflict</span></td>
+              <td><button class="btn-approve" type="button">Approve</button> <button class="btn-reject" type="button">Reject</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="manage-resources" class="admin-section" aria-labelledby="manage-resources-heading">
+      <h2 id="manage-resources-heading">Manage Resources</h2>
+      <section class="resource-crud-section" aria-labelledby="resource-crud-heading">
+        <h3 id="resource-crud-heading">Add / Edit Resource Form</h3>
+        <form id="resource-crud-form">
+          <div class="form-field">
+            <label for="resource-name">Resource Name</label>
+            <input type="text" id="resource-name" name="resource-name" required>
+          </div>
+          <div class="form-field">
+            <label for="resource-category">Category</label>
+            <select id="resource-category" name="resource-category" required>
+              <option value="">Select a category</option>
+              <option value="spaces">Spaces</option>
+              <option value="tools">Tools</option>
+              <option value="sports">Sports</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="resource-status">Status</label>
+            <select id="resource-status" name="resource-status" required>
+              <option value="">Select a status</option>
+              <option value="available">Available</option>
+              <option value="reserved">Reserved</option>
+              <option value="under-repair">Under Repair</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="deposit-fee">Deposit Fee (₹)</label>
+            <input type="number" id="deposit-fee" name="deposit-fee" min="0" step="1" required>
+          </div>
+          <button type="submit">Save Resource</button>
+        </form>
+      </section>
+
+      <section class="existing-resources-section" aria-labelledby="existing-resources-heading">
+        <h3 id="existing-resources-heading">Existing Resources List</h3>
+        <div class="table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th scope="col">Resource</th>
+                <th scope="col">Category</th>
+                <th scope="col">Status</th>
+                <th scope="col">Deposit</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Clubhouse Banquet Hall</td>
+                <td>Spaces</td>
+                <td>Available</td>
+                <td>₹500</td>
+                <td><button class="btn-edit" type="button">Edit</button> <button class="btn-delete" type="button">Remove</button></td>
+              </tr>
+              <tr>
+                <td>High-Pressure Washer Kit</td>
+                <td>Tools</td>
+                <td>Available</td>
+                <td>₹100</td>
+                <td><button class="btn-edit" type="button">Edit</button> <button class="btn-delete" type="button">Remove</button></td>
+              </tr>
+              <tr>
+                <td>Indoor Badminton Court 1</td>
+                <td>Sports</td>
+                <td>Available</td>
+                <td>₹0</td>
+                <td><button class="btn-edit" type="button">Edit</button> <button class="btn-delete" type="button">Remove</button></td>
+              </tr>
+              <tr>
+                <td>Electric Lawn Mower</td>
+                <td>Tools</td>
+                <td>Under Repair</td>
+                <td>₹0</td>
+                <td><button class="btn-edit" type="button">Edit</button> <button class="btn-delete" type="button">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section id="all-bookings-history" class="admin-section" aria-labelledby="all-bookings-heading">
+      <h2 id="all-bookings-heading">All Bookings &amp; Usage History</h2>
+      <div class="form-field">
+        <label for="booking-status-filter">Filter by Status</label>
+        <select id="booking-status-filter" name="booking-status-filter">
+          <option value="all">All</option>
+          <option value="approved">Approved</option>
+          <option value="completed">Completed</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+      <div class="table-wrapper">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">Booking ID</th>
+              <th scope="col">Resident</th>
+              <th scope="col">Resource</th>
+              <th scope="col">Date / Time</th>
+              <th scope="col">Return Condition / Notes</th>
+              <th scope="col">Final Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#BK-901</td>
+              <td>Alex Rivera, 402-B</td>
+              <td>Clubhouse Banquet Hall</td>
+              <td><time datetime="2026-10-28">28 Oct 2026</time>, 17:00–21:00</td>
+              <td>Awaiting reservation</td>
+              <td><span class="badge badge-approved">Approved</span></td>
+            </tr>
+            <tr>
+              <td>#BK-872</td>
+              <td>Meera Shah, 210-A</td>
+              <td>High-Pressure Washer Kit</td>
+              <td><time datetime="2026-10-20">20 Oct 2026</time>, 09:00–12:00</td>
+              <td>Returned clean and in good condition</td>
+              <td><span class="badge badge-completed">Completed</span></td>
+            </tr>
+            <tr>
+              <td>#BK-866</td>
+              <td>Samir Patel, 118-C</td>
+              <td>Indoor Badminton Court 1</td>
+              <td><time datetime="2026-10-18">18 Oct 2026</time>, 18:00–20:00</td>
+              <td>Court inspected; no issues</td>
+              <td><span class="badge badge-completed">Completed</span></td>
+            </tr>
+            <tr>
+              <td>#BK-859</td>
+              <td>Priya Nair, 305-A</td>
+              <td>Clubhouse Banquet Hall</td>
+              <td><time datetime="2026-10-16">16 Oct 2026</time>, 17:00–21:00</td>
+              <td>Overlapping approved reservation</td>
+              <td><span class="badge badge-rejected">Rejected</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="manage-rules" class="admin-section" aria-labelledby="manage-rules-heading">
+      <h2 id="manage-rules-heading">Manage Booking Rules</h2>
+      <form id="rules-management-form">
+        <div class="form-field">
+          <label for="max-borrowing-hours">Max Equipment Borrowing Hours</label>
+          <input type="number" id="max-borrowing-hours" name="max-borrowing-hours" value="24" min="1" required>
+        </div>
+        <div class="form-field">
+          <label for="max-active-bookings">Max Active Bookings Per Flat</label>
+          <input type="number" id="max-active-bookings" name="max-active-bookings" value="2" min="1" required>
+        </div>
+        <div class="form-field">
+          <label for="community-rules">Community Booking Rules</label>
+          <textarea id="community-rules" name="community-rules" rows="4" required>Shared tools may be borrowed for a maximum of 24 hours.
+Residents are responsible for damage beyond normal wear and tear.
+Cancel at least 24 hours before your reservation.
+Booking approval is subject to conflict checks against approved reservations.</textarea>
+        </div>
+        <button type="submit">Update Community Rules</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Greenwood Enclave Residents Welfare Association.</p>
+  </footer>
+
+  <script src="javascript/storage.js" defer></script>
+  <script src="javascript/admin.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a Greenwood Enclave shared resource booking.">
+  <title>Request Booking | Greenwood Enclave Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="index.html">Greenwood Enclave Portal</a>
+    <nav class="site-navigation" aria-label="Main navigation">
+      <ul class="navigation-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="resources.html">Catalogue</a></li>
+        <li><a href="book-resource.html" aria-current="page">Request Booking</a></li>
+        <li><a href="bookings.html">My Bookings</a></li>
+        <li><a href="admin.html">Admin Panel</a></li>
+      </ul>
+    </nav>
+    <p class="user-profile" aria-label="Resident Alex Rivera, Flat 402-B">Resident: Alex Rivera (402-B) · <a href="admin.html">Switch to Admin</a></p>
+  </header>
+
+  <main class="booking-page-container">
+    <section class="booking-form-section" aria-labelledby="booking-page-heading">
+      <h1 id="booking-page-heading">Request a Resource Booking</h1>
+      <p>Choose a shared resource and submit your request for administrator review.</p>
+      <form id="reservation-request-form">
+        <fieldset class="form-fieldset">
+          <legend>Resident &amp; Resource Selection</legend>
+          <div class="form-field">
+            <label for="resident-name">Resident Name</label>
+            <input type="text" id="resident-name" name="resident-name" value="Alex Rivera" readonly>
+          </div>
+          <div class="form-field">
+            <label for="flat-number">Flat Number</label>
+            <input type="text" id="flat-number" name="flat-number" value="402-B" readonly>
+          </div>
+          <div class="form-field">
+            <label for="resource-select">Resource</label>
+            <select id="resource-select" name="resource" required>
+              <option value="">Select a resource</option>
+              <optgroup label="Spaces">
+                <option value="clubhouse-banquet-hall">Clubhouse Banquet Hall</option>
+                <option value="4k-outdoor-projector">4K Outdoor Projector</option>
+              </optgroup>
+              <optgroup label="Tools">
+                <option value="high-pressure-washer-kit">High-Pressure Washer Kit</option>
+                <option value="electric-lawn-mower">Electric Lawn Mower</option>
+              </optgroup>
+              <optgroup label="Sports">
+                <option value="indoor-badminton-court-1">Indoor Badminton Court 1</option>
+              </optgroup>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>Date, Time &amp; Purpose</legend>
+          <div class="form-field">
+            <label for="booking-date">Reservation Date</label>
+            <input type="date" id="booking-date" name="booking-date" required>
+          </div>
+          <div class="form-field">
+            <label for="booking-slot">Time Slot</label>
+            <select id="booking-slot" name="booking-slot" required>
+              <option value="">Select a time slot</option>
+              <option value="morning">Morning, 09:00–12:00</option>
+              <option value="afternoon">Afternoon, 13:00–16:00</option>
+              <option value="evening">Evening, 17:00–21:00</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="booking-purpose">Booking Purpose</label>
+            <textarea id="booking-purpose" name="booking-purpose" rows="3" required placeholder="Describe your event or maintenance need..."></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend>Usage Rules &amp; Deposit Agreement</legend>
+          <div class="rules-summary-box" aria-label="Resource usage rules">
+            <h2>Important Usage Rules</h2>
+            <ul>
+              <li>Shared tools may be borrowed for a maximum of 24 hours.</li>
+              <li>Residents are responsible for damage beyond normal wear and tear.</li>
+              <li>Cancel at least 24 hours before your reservation to avoid a cancellation fee.</li>
+            </ul>
+          </div>
+          <div class="form-field">
+            <input type="checkbox" id="accept-rules" name="accept-rules" required>
+            <label for="accept-rules">I have read and agree to abide by the Greenwood Enclave resource usage rules and conflict policies.</label>
+          </div>
+          <fieldset class="deposit-options">
+            <legend>Mock Deposit Selection</legend>
+            <div class="form-field">
+              <input type="radio" id="deposit-maintenance" name="deposit-method" value="maintenance" required>
+              <label for="deposit-maintenance">Bill token deposit to monthly society maintenance</label>
+            </div>
+            <div class="form-field">
+              <input type="radio" id="deposit-office" name="deposit-method" value="society-office">
+              <label for="deposit-office">Pay at Society Office</label>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <div class="booking-form-actions">
+          <button type="submit" class="btn-primary">Submit Booking Request</button>
+          <button type="reset" class="btn-secondary">Reset Form</button>
+        </div>
+      </form>
+    </section>
+
+    <aside class="booking-status-sidebar" aria-label="Booking status and conflict information">
+      <section id="live-submission-status" class="status-card" aria-labelledby="submission-status-heading">
+        <h2 id="submission-status-heading">Booking Request Status</h2>
+        <p><span class="badge badge-pending">Awaiting Form Submission</span></p>
+        <div id="submitted-request-status" hidden>
+          <p>Request Submitted — Status: Pending Admin Approval</p>
+          <p>Reference ID: <strong>#REQ-2026-89</strong></p>
+          <p>Submitted: <time datetime="2026-10-25T15:00">25 Oct 2026, 3:00 PM</time></p>
+        </div>
+      </section>
+      <section class="conflict-notice-card" aria-labelledby="conflict-check-heading">
+        <h2 id="conflict-check-heading">Conflict Prevention Active</h2>
+        <p>The selected slot will be verified against existing approved reservations before a request can be approved. Pending requests may overlap and do not reserve a slot.</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Greenwood Enclave Residents Welfare Association.</p>
+  </footer>
+
+  <script src="javascript/storage.js" defer></script>
+  <script src="javascript/bookings.js" defer></script>
+</body>
+</html>
